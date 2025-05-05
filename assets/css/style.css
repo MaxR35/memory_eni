@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.montserrat-font {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+}
+
+
+/* LINK ACTIVE */
+a.active{
+    color: white;
+    border-bottom: #ff7f00 solid 1px;
+}
+
+/* OFFCANVAS SIGN IN */
+.offcanvas{
+    height: 0;
+    overflow: hidden;
+    transition: height .3s ease-out;
+}
+
+.offcanvas.show{
+    height:70vh;
+}

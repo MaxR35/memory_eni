@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eni - Memory</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- CSS -->
+     <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="grid grid-col-10 bg-linear-to-r from-cyan-500 to-cyan-900 to-zinc-700 w-full montserrat-font relative">
+    <nav class="col-span-12 p-5 flex content-between">
+        <ul class="flex gap-3 text-sm text-zinc-300">
+            <li>
+                <a href="#" class=" py-1 hover:text-zinc-50 transition-colors active">Accueil</a>
+            </li>
+            <li>
+                <a href="#" class=" py-1 hover:text-zinc-50 transition-colors" id="signIn">S'inscrire</a>
+            </li>
+            <li>
+                <a href="#" class=" py-1 hover:text-zinc-50 transition-colors" id="logIn">Se connecter</a>
+            </li>
+            <li>
+                <a href="#" class="text-[#ff7f00] hover:text-amber-500 w-full rounded-md p-1 px-2 text-sm font-semibold uppercase">Jouer</a>
+            </li>
+        </ul>
+    </nav>
+    <header class="col-span-12 px-5 pt-10">
+        <h1 class="text-zinc-50 text-2xl uppercase">Bienvenue sur le site <span class="text-zinc-900 font-">Memory</span> de l'ENI</h2>
+        <p class="text-zinc-200 text-sm mb-5">Venez jouer avec nous et faites le meilleur score possible.</p>
+    </header>
+    <main class="w-full px-5 pt-5 bg-zinc-900 rounded-t-xl fixed bottom-0 max-h-[70vh] overflow-y-auto">
+        <h3 class="text-zinc-50 uppercase">Régles du jeu :</h3>
+        <hr class="border-b border-[#ff7f00] my-3">
+        <ul class="list-disc text-zinc-300 text-sm mb-5 ps-4">
+            <li class="mb-2">
+                Retournez deux cartes : si les images sont identiques, le jeu laisse les cartes visibles.
+            </li>
+            <li class="mb-2">
+                Si les images sont différentes, les cartes se retrounent faces cachées là où elles étaient.
+            </li>
+            <li class="mb-2">
+                La partie est terminée lorsque toutes les cartes ont été assemblées par paires.
+            </li>
+        </ul>
+        <div class="grid grid-cols-4 gap-2 mb-5">
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+            <div class="border border-zinc-50 col-span-1 aspect-square"></div>
+        </div>
+        <p class="text-zinc-300 text-sm mb-3">Si vous voulez vous souvenir de votre score. Inscrivez-vous via le formulaire. <br> Le jeu garde les <span class="text-[#ff9b00]">5 meilleurs</span> scores.</p>
+        <p class="text-zinc-300 text-sm mb-5">Si vous voulez relancer une partie cliquez sur <span class="text-[#ff9b00]">la barre d'espace</span>.</p>
+    </main>
+    <!-- SIGN IN -->
+    <div class="fixed bottom-0 px-5 bg-zinc-900 rounded-t-xl w-full offcanvas z-10  overflow-y-auto" id="signInOffcanvas">
+        <fieldset class="pt-5">
+            <h3 class="text-zinc-50 text-2xl uppercase text-center mt-5 mb-10">Inscription</span></h3>
+            <form method="post">
+                <div class="mb-5 text-sm">
+                    <label for="nameSignIn" class="w-full text-zinc-50">Nom d'utilisateur :</label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="nameSignIn"
+                        class="bg-transparent border-b border-gray-300 focus:border-[#ff7f00] focus:outline-hidden transition-color w-full mt-2 placeholder:text-zinc-500 placeholder:text-xs text-gray-200 pb-2"
+                        placeholder="3 caractères minimum."
+                        required />
+                    <p class="text-red-400 text-xs mt-2 hidden">Choisissez un pseudo contenant au moins 3 caractères.</p>
+                </div>
+                <div class="mb-5 text-sm">
+                    <label for="emailSignIn" class="w-full text-zinc-50">Adresse mail :</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="emailSignIn"
+                        class="bg-transparent border-b border-gray-300 focus:border-[#ff7f00] focus:outline-hidden transition-color w-full mt-2 placeholder:text-zinc-500 placeholder:text-xs text-gray-200 pb-2"
+                        placeholder="Votre mail."
+                        required />
+                    <p class="text-red-400 text-xs mt-2 hidden">Adresse mail non valide.</p>
+                </div>
+                <div class="mb-5 text-sm">
+                    <label for="pwdSignIn" class="w-full text-zinc-50">Mot de Passe :</label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="pwdSignIn"
+                        class="bg-transparent border-b border-gray-300 focus:border-[#ff7f00] focus:outline-hidden transition-color w-full mt-2 placeholder:text-zinc-500 placeholder:text-xs text-gray-200 pb-2"
+                        placeholder="Votre mot de passe."
+                        required />
+                    <p class="mt-1 text-zinc-400 text-xs">Au moins un symbole, un chiffre, ainsi que 6 caractères minimum.</p>
+                    
+                    <div class="hidden">
+                        <div class="w-full bg-zinc-700 rounded-full h-1 mb-4 my-2">
+                            <div id="pwdStrength" class="bg-red-400 h-1 rounded-full transition-all max-w-[100%] " style="width: 0%"></div>
+                        </div>
+                        <div class="w-full grid grid-cols-3">
+                            <div id="weak" class=" col-span-1 text-center text-[#ff6467] font-semibold">Faible</div>
+                            <div id="middle" class="hidden col-span-1 text-center text-[#fe9a00] font-semibold">Moyen</div>
+                            <div id="strong" class="hidden col-span-1 text-center text-[#00d5be] font-semibold">Fort</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-5 text-sm">
+                    <label for="passwordConfirmSignIn" class="w-full text-zinc-50">Confirmer Mot de Passe :</label>
+                    <input
+                        type="password"
+                        name="pwdConfirm"
+                        id="pwdConfirmSignIn"
+                        class="bg-transparent border-b border-gray-300 focus:border-[#ff7f00] focus:outline-hidden transition-color w-full mt-2 placeholder:text-zinc-500 placeholder:text-xs text-gray-200 pb-2"
+                        placeholder="Confirmer mot de passe"
+                        required />
+                    <p class="text-red-400 text-xs mt-2 hidden">Les mots de passes ne correspondent pas.</p>
+                </div>
+                <div class="mb-5">
+                    <button type="submit" id="signInBtn" class="bg-[#ff7f00] w-full rounded-md p-2 text-sm">Création du compte</button>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <!-- LOG IN -->
+    <div class="fixed bottom-0 px-5 bg-zinc-900 rounded-t-xl w-full offcanvas z-20" id="logInOffcanvas">
+        <!-- <fieldset class="pt-5">
+            <legend class="w-full">
+                <h3 class="text-zinc-50 text-2xl uppercase text-center my-10">Connexion</span></h3>
+            </legend>
+            <form method="post">
+                <div class="mb-5 text-sm">
+                    <label for="name" class="w-full text-zinc-50">Adresse mail :</label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="border-b border-gray-300 focus:border-[#ff7f00] focus:outline-hidden transition-color w-full mt-2 placeholder:text-zinc-500 placeholder:text-xs text-gray-200 pb-2"
+                        placeholder="Votre email : exemple johndoe@doe.fr"
+                        required />
+                </div>
+                <div class="mb-5 text-sm">
+                    <label for="name" class="w-full text-zinc-50">Mot de Passe :</label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="border-b border-gray-300 focus:border-[#ff7f00] focus:outline-hidden transition-color w-full mt-2 placeholder:text-zinc-500 placeholder:text-xs text-gray-200 pb-2"
+                        placeholder="Votre mot de passe."
+                        required />
+                </div>
+                <div class="mb-5">
+                    <button type="submit" class="bg-[#ff7f00] w-full rounded-md p-2 text-sm">Se connecter</button>
+                </div>
+            </form>
+        </fieldset> -->
+    </div>
+    <script src="assets/js/script.js" type="module"></script>
+</body>
+</html>
