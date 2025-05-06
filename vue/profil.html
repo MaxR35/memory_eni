@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eni - Memory</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- CSS -->
+     <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="grid grid-col-10 bg-linear-to-r from-cyan-100 to-cyan-900 to-zinc-700 w-full montserrat-font relative">
+    <nav class="col-span-12 p-5 flex content-between">
+        <ul class="flex gap-3 text-sm text-zinc-300">
+            <li>
+                <a href="#" class="font-semibold py-1 text-zinc-900 hover:text-zinc-500 transition-colors nav-link active">Profil</a>
+            </li>
+            <li>
+                <a href="#" class="bg-[#ff7f00] text-zinc-900 py-1 px-2 hover:text-amber-500 w-full rounded-md font-bold uppercase">Jouer</a>
+            </li>
+        </ul>
+      
+    </nav>
+    <header class="col-span-12 px-5">
+        <div class="grid grid-cols-10 w-full">
+            <div class="col-span-8 col-start-2">
+                <img src="../assets/img/7474163.png" alt="" class="w-full rounded-full">
+            </div>
+        </div>
+    </header>
+    <!-- Accueil -->
+    <main class="w-full px-5 pt-5 bg-zinc-900 rounded-t-xl fixed bottom-0 h-[75vh] overflow-y-auto">
+        
+        <div class="text-center">
+            <h1 class="text-3xl text-[#ff7f00] uppercase" id="userName">&nbsp;</h1>
+            <p class="text-xs text-zinc-400" id="userMail">&nbsp;</p>
+        </div>
+    </main>
+   
+ 
+    <script src="../assets/js/profil.js" type="module"></script>
+</body>
+</html>
