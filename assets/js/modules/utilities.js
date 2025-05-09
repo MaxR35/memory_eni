@@ -1,24 +1,31 @@
 // Gestion Offcanvas
 export const showContent = ($LINKS, i) => {
     $LINKS.forEach((link) => {link.classList.remove('active')}); // Réinitialisation des liens
-    let $offcanvas = document.querySelectorAll('.offcanvas');
-    let target = $LINKS[i].getAttribute('data-target');
+    let $offcanvas = document.querySelectorAll('.offcanvas'); // Liste d'offcavans
+    let target = $LINKS[i].getAttribute('data-target'); // Index faisant référence à l'offcanvas ciblé via attribut data-target
 
-    $offcanvas.forEach((element) => {
+    $offcanvas.forEach((element) => { // Désactivation des offcanvas visibles
         element.classList.remove('show');
     })
 
-    if (target === 'signIn') {
+    // Affichage et mise à jour lien en fonction du data-target
+    if (target === 'signIn') { 
+        // Inscription
         $LINKS[1].classList.add('active');
         $offcanvas[0].classList.add('show');
     } else if (target === 'logIn') {
+        // Connexion
         $LINKS[2].classList.add('active');
         $offcanvas[1].classList.add('show');
-    } 
+    } else {
+        // Accueil
+        $LINKS[0].classList.add('active');
+    }
 }
 // Gestion message connexion
 export const logInMsg = (status) => {
     let $logInMsg = document.getElementById('logInMsg');
+    $logInMsg.classList.remove('aos-animate');
     if(status == 'success') {
         $logInMsg.classList.add('text-teal-200', 'border-teal-200');
         $logInMsg.innerText = 'Inscription réussie ! Vous pouvez vous connecter.';
@@ -26,36 +33,20 @@ export const logInMsg = (status) => {
         $logInMsg.classList.add('text-red-200', 'border-red-200');
         $logInMsg.innerText = 'Une erreur est survenue. Vérifier vos identifiants.';
     }
-    $logInMsg.classList.remove('hidden');
-    $logInMsg.style.opacity = 1;
-
-    fadeOut($logInMsg);
+    $logInMsg.classList.add('aos-animate');
+    AOS.refresh();
 }
 
-const fadeOut = (element) => {
-    setTimeout(() => {
-        let i = 100;
-        let interval = setInterval(() => {
-            i--;
-            element.style.opacity = i / 100;
-            if (i === 60) {
-                clearInterval(interval);
-            }
-        }, 50);
-    }, 500);
-}
 // Regex mail
 export const checkMail = (input) => {
     let regex = /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/; // Regex Email valide
     return !!(input.value.match(regex)); // Retourne Bool si value match regex
 }
-
 // Regex password
 export const checkPwd = (input) => { 
     let regex = /(?=.*[a-z]+)(?=.*[A-Z])(?=.*\d).{6,}/; // Regex Mdp valide
     return !!(input.value.match(regex)); // Retourne Bool si value match regex
 }
-
 // Validation input
 export const inputValidate = (input) => {
     let name = input.getAttribute('name');
@@ -83,7 +74,6 @@ export const inputValidate = (input) => {
     }
     return bool;
 }
-
 // Validation format mdp
 export const pwdSignInValidate = (input) => {
     let bool = checkPwd(input);
@@ -97,7 +87,6 @@ export const pwdSignInValidate = (input) => {
     updateProgressPwd(strength);
     return bool;
 };
-
 // Strength mdp inscription
 const checkStrenghtPwd = (input) => {
     let chars = input.value.split(''); // Tab de chars value input

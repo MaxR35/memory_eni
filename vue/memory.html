@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> ENI Memory - Memory</title>
+        <!-- Tailwind -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <!-- AOS -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/style.css">
+    </head>
+    <body
+        class="w-full grid grid-cols-10 bg-zinc-900 w-full montserrat-font relative min-h-[100vh] montserrat-font">
+        <!-- Nav -->
+        <nav class="w-full fixed top-0 p-5">
+            <ul class="flex gap-3 text-sm text-zinc-300 items-center">
+                <li data-aos="fade-left">
+                    <img src="../assets/img/7474163.png" alt="user logo"
+                        width="30" class="bg-zinc-900 rounded-full invert">
+
+                </li>
+                <li data-aos="fade-left" data-aos-delay="50">
+                    <a href="profil.html"
+                        class="font-semibold py-1 text-zinc-400 hover:text-zinc-900 transition-all nav-link">
+                        Profil
+                    </a>
+                </li>
+                <li data-aos="fade-left" data-aos-delay="100">
+                    <a href="profil.html"
+                        class="font-semibold py-1 text-zinc-400 hover:text-zinc-900 transition-all nav-link">
+                        Régles
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Memory -->
+        <main class="col-span-10 p-5 pt-20">
+            <div class="text-center w-full mt-10">
+                <h1 class="text-3xl text-zinc-50 uppercase py-3"
+                    data-aos="fade-up" data-aos-delay="150">Memory</h1>
+                <hr class="border-zinc-50" data-aos="fade-up"
+                    data-aos-delay="200">
+            </div>
+            <div class="w-full flex flex-col justify-center min-h-[516px]"
+                id="container">
+                <!-- Score -->
+                <div class="mt-3">
+                    <p class="text-center font-semibold text-[#ff7f00] text-5xl"
+                        id="userScore" data-aos="fade-up"
+                        data-aos-delay="250">0</p>
+                    <p class="text-zinc-400 text-sm text-center"
+                        data-aos="fade-up" data-aos-delay="300">Nombre de coups
+                    </p>
+                </div>
+                <!-- Memory Container -->
+                <div id="memoryContainer" class="w-full mt-3"></div>
+                <p class="text-xs text-cyan-100 text-center font-semibold aos-init" data-aos="fade-up" data-aos-delay="1200">Vous pouvez relancer une partie en appuyant sur la touche espace.</p>
+            </div>
+        </main>
+        <!-- Aos -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                offset: 0, 
+                duration: 500,
+                once: true
+            });
+      </script>
+        <!-- Script -->
+        <script src="../assets/js/game.js" type="module"></script>
+        
+    </body>
+</html>

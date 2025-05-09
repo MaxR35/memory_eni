@@ -1,43 +1,110 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eni - Memory</title>
-    <!-- Tailwind -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- CSS -->
-     <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body class="grid grid-col-10 bg-linear-to-r from-cyan-100 to-cyan-900 to-zinc-700 w-full montserrat-font relative">
-    <nav class="col-span-12 p-5 flex content-between">
-        <ul class="flex gap-3 text-sm text-zinc-300">
-            <li>
-                <a href="#" class="font-semibold py-1 text-zinc-900 hover:text-zinc-500 transition-colors nav-link active">Profil</a>
-            </li>
-            <li>
-                <a href="#" class="bg-[#ff7f00] text-zinc-900 py-1 px-2 hover:text-amber-500 w-full rounded-md font-bold uppercase">Jouer</a>
-            </li>
-        </ul>
-      
-    </nav>
-    <header class="col-span-12 px-5">
-        <div class="grid grid-cols-10 w-full">
-            <div class="col-span-8 col-start-2">
-                <img src="../assets/img/7474163.png" alt="" class="w-full rounded-full">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ENI Memory - Profil</title>
+        <!-- Tailwind -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <!-- CSS -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="../assets/css/style.css">
+    </head>
+    <body
+        class="w-full grid grid-cols-10 bg-zinc-900 relative montserrat-font">
+        <nav class="w-full fixed top-0 p-5">
+            <ul class="flex gap-3 text-sm items-center">
+                <li data-aos="fade-left">
+                    <img src="../assets/img/7474163.png" alt="user logo"
+                        width="30" class="bg-zinc-900 rounded-full invert">
+                </li>
+                <li data-aos="fade-left" data-aos-delay="50">
+                    <a href="#"
+                        class="font-semibold py-1 text-zinc-400 hover:text-zinc-900 transition-all nav-link active">
+                        Profil
+                    </a>
+                </li>
+                <li data-aos="fade-left" data-aos-delay="100">
+                    <a href="#"
+                        class="font-semibold py-1 text-zinc-400 hover:text-zinc-900 transition-all nav-link">
+                        Régles
+                    </a>
+                </li>
+                <li data-aos="fade-left" data-aos-delay="150">
+                    <a href="memory.html"
+                        class="bg-[#ff7f00] text-zinc-900 py-1 px-2 hover:text-amber-500 w-full rounded-md font-bold uppercase">Jouer</a>
+                </li>
+            </ul>
+        </nav>
+        <header class="col-span-10 px-5 pt-20">
+            <div class="grid grid-cols-10 w-full">
+                <div class="col-span-6 col-start-3">
+                    <img src="../assets/img/7474163.png" alt="user profil"
+                        class="w-full rounded-full" data-aos="fade-up">
+                </div>
             </div>
-        </div>
-    </header>
-    <!-- Accueil -->
-    <main class="w-full px-5 pt-5 bg-zinc-900 rounded-t-xl fixed bottom-0 h-[75vh] overflow-y-auto">
-        
-        <div class="text-center">
-            <h1 class="text-3xl text-[#ff7f00] uppercase" id="userName">&nbsp;</h1>
-            <p class="text-xs text-zinc-400" id="userMail">&nbsp;</p>
-        </div>
-    </main>
-   
- 
-    <script src="../assets/js/profil.js" type="module"></script>
-</body>
+        </header>
+        <!-- Accueil -->
+        <main
+            class="col-span-12 px-5"
+            id="contentContainer">
+            <div class="text-center">
+                <h1 id="userName" class="text-3xl text-zinc-50 uppercase"
+                    data-aos="fade-up" data-aos-delay="50">&nbsp;</h1>
+                <p class="text-xs text-[#ff7f00]" id="userMail"
+                    data-aos="fade-up" data-aos-delay="100">&nbsp;</p>
+            </div>
+            <div class="mt-10 text-sm text-center">
+                <div class="mb-2">
+                    <hr class="border-zinc-50" data-aos="fade-up"
+                        data-aos-delay="150">
+                    <h2 class="text-zinc-50 text-xs py-5 font-semibold" data-aos="fade-up"
+                        data-aos-delay="200">Paramètres</h2>
+                    <div class="mb-5">
+                        <label for="categories" data-aos="fade-up"
+                            data-aos-delay="250"
+                            class="w-full text-zinc-50 text-xs text-start block py-1">Catégorie</label>
+                        <select id="categories" name="categories"
+                            data-aos="fade-up" data-aos-delay="300"
+                            class="bg-transparent border-b border-zinc-50 focus:border-[#ff7f00] focus:outline-hidden transition-all w-full mt-2 placeholder:text-zinc-500 placeholder:text-xs text-zinc-400 pb-2 mb-5">
+                            <option value>Par défaut</option>
+                        </select>
+                    </div>
+                    <div class="mb-5">
+                        <label for="difficultes" data-aos="fade-up"
+                            data-aos-delay="350"
+                            class="w-full text-zinc-50 text-xs text-start block py-1">Difficulté</label>
+                        <select name="difficultes" id="difficultes"
+                            data-aos="fade-up" data-aos-delay="400"
+                            class="bg-transparent border-b border-zinc-50 focus:border-[#ff7f00] focus:outline-hidden transition-all w-full mt-2 placeholder:text-zinc-500 placeholder:text-xs text-zinc-400 pb-2">
+                            <option value="0">Par défaut</option>
+                        </select>
+                    </div>
+                    <div class="mb-5" data-aos="fade-up" data-aos-delay="450">
+                        <button type="submit"
+                            class="text-[#ff7f00] w-full rounded-md p-2 text-xs font-semibold">Modifier
+                            paramètres</button>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <hr class="border-zinc-50 mb-5" data-aos="fade-up"
+                        data-aos-delay="500">
+                    <button id="logOutBtn" type="button"
+                        class="text-cyan-100 w-full rounded-md p-2 text-xs font-semibold"
+                        data-aos="fade-up" data-aos-delay="550">Se
+                        déconnecter</button>
+                </div>
+            </div>
+        </main>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="../assets/js/profil.js" type="module"></script>
+        <script>
+            AOS.init({
+                offset: 0, 
+                duration: 600,
+                once: true
+            });
+          </script>
+    </body>
 </html>
