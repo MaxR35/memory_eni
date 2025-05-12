@@ -40,18 +40,7 @@ export const memoryBuilder = (container, X, Y) => {
     };
     return deck;
 };
-export const startMemory = (delay, col, card) => {
-    delay = delay + 50;
-    // Animation
-    col.setAttribute('data-aos-delay', delay);
-    col.classList.add('aos-animate');
 
-    // Attribution
-    col.setAttribute('data-card',  card);
-    col.querySelector('.flip-card-back').innerText =  card;
-    col.querySelector('.flip-card-front').innerText =  card;
-    return delay;
-};
 export const colStorageCheck = (colStorage, col) => {
      
     if (colStorage) { // Si carte déjà select 

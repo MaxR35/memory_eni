@@ -26,7 +26,15 @@ document.addEventListener('DOMContentLoaded', () => { // Script si DOM totalemen
             let card = deck[i];
             // Animation Carte AOS et Attribution valeur du tableau deck
             setTimeout(() => {
-                delay = memory.startMemory(delay, col, card);
+                delay = delay + 50;
+                // Animation
+                col.setAttribute('data-aos-delay', delay);
+                col.classList.add('aos-animate');
+
+                // Attribution
+                col.setAttribute('data-card',  card);
+                col.querySelector('.flip-card-back').innerText =  card;
+                // col.querySelector('.flip-card-front').innerText =  card;
             }, 350);
 
             col.addEventListener('click', () => { // clique sur cellule
@@ -51,6 +59,29 @@ document.addEventListener('DOMContentLoaded', () => { // Script si DOM totalemen
                     if (colsPaired.length == $COLS.length) { // Si le nombre de carte.paired = le nombre de carte totale = WIN
                         win = true;
                         let $container = document.getElementById('container');
+
+                        const USER_STORAGE = JSON.parse(localStorage.getItem('users'));
+                        const USER_SESSION = JSON.parse(sessionStorage.getItem('user'));
+
+                        USER_STORAGE.forEach((user) => {
+                            if(USER_SESSION['name'] == user['name']) {
+                                let game = {};
+                                let date = new Date();
+        
+                                game['score'] = score / 2;
+                                game['date'] = date;
+
+                                if(user['games']) {
+                                    user['games'].push(game);
+                                } else {
+                                    const GAMES = [];
+                                    GAMES.push(game);
+                                    user['games'] = GAMES;
+                                }
+                            };
+                        });
+
+                        localStorage.setItem("users", JSON.stringify(USER_STORAGE)); // Mise à jour
                 
                         memory.aosOut($container); // Fonction d'animation de sortie de contenu
                 
@@ -92,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => { // Script si DOM totalemen
                     // Attribution
                     col.setAttribute('data-card',  card);
                     col.querySelector('.flip-card-back').innerText =  card;
-                    col.querySelector('.flip-card-front').innerText =  card;
+                    // col.querySelector('.flip-card-front').innerText =  card;
                     // Animation Carte AOS et Attribution valeur du tableau deck
                     memory.aosIn($container);
 
@@ -108,13 +139,37 @@ document.addEventListener('DOMContentLoaded', () => { // Script si DOM totalemen
                             col.classList.add('animated');
                             // Delai pour laisser le temps à l'animation FLIP
                             setTimeout(() => {
-                                colStorage = memory.handleClickEventCard(colStorage, col);
+                                colStorage = memory.colStorageCheck(colStorage, col);
                             
                                 let colsPaired = document.querySelectorAll('.paired'); // Récupération de toutes les cartes avec la classe paired
 
                                 if (colsPaired.length == $COLS.length) { // Si le nombre de carte.paired = le nombre de carte totale = WIN
                                     win = true;
                                     let $container = document.getElementById('container');
+                                    const USER_STORAGE = JSON.parse(localStorage.getItem('users'));
+                                    const USER_SESSION = JSON.parse(sessionStorage.getItem('user'));
+            
+                                    USER_STORAGE.forEach((user) => {
+                                        if(USER_SESSION['name'] == user['name']) {
+                                            let game = {};
+                                            let date = new Date();
+                    
+                                            game['score'] = score / 2;
+                                            game['date'] = date;
+            
+                                            if(user['games']) {
+                                                user['games'].push(game);
+                                                sessionStorage.setItem("user", JSON.stringify(user));
+                                            } else {
+                                                const GAMES = [];
+                                                GAMES.push(game);
+                                                user['games'] = GAMES;
+                                                sessionStorage.setItem("user", JSON.stringify(user));
+                                            };
+                                            
+                                        };
+                                    });
+                                    localStorage.setItem("users", JSON.stringify(USER_STORAGE)); // Mise à jour
 
                                     memory.aosOut($container); // Fonction d'animation de sortie de contenu
 
